@@ -4,3 +4,7 @@ __pycache__/
 .ipynb_checkpoints/
 .DS_Store
 test_protobuf_api_wrapper.py
+protobuf_api_wrapper.py
+data/train.csv
+data/validation.csv
+data/test.csv
