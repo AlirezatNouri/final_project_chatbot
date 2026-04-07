@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Research Paper Chatbot</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background: #f7f9fc;
+      color: #222;
+    }
+    h1 {
+      color: #1f4e79;
+    }
+    .box {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 24px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+    }
+  </style>
+</head>
+<body>
+  <div class="box">
+    <h1>Conversational Research Paper Chatbot</h1>
+    <p>
+      This chatbot recommends research papers based on your interests in NLP, machine learning,
+      recommender systems, databases, and related computer science topics.
+    </p>
+    <p>
+      Try questions like:
+    </p>
+    <ul>
+      <li>Recommend papers on recommender systems</li>
+      <li>Find papers about image segmentation</li>
+      <li>Show me papers on query optimization</li>
+      <li>Tell me more about paper 1</li>
+    </ul>
+  </div>
+
+  <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
+  <df-messenger
+    intent="WELCOME"
+    chat-title="ResearchPaperChatbot"
+    agent-id="2612fca8-8448-4db0-8715-aa8c19439b92"
+    language-code="en"
+    expand="true"
+  ></df-messenger>
+</body>
+</html>
