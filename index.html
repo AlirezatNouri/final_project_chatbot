@@ -3,43 +3,202 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Research Paper Chatbot</title>
+  <title>Conversational Research Paper Recommender</title>
   <style>
+    :root {
+      --bg: #f4f7fb;
+      --card: #ffffff;
+      --text: #1f2937;
+      --muted: #5b6472;
+      --primary: #1d4ed8;
+      --primary-dark: #153ea8;
+      --accent: #dbeafe;
+      --border: #e5e7eb;
+      --shadow: 0 10px 25px rgba(0,0,0,0.08);
+      --radius: 16px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
     body {
+      margin: 0;
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background: #f7f9fc;
-      color: #222;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.6;
     }
-    h1 {
-      color: #1f4e79;
+
+    .hero {
+      background: linear-gradient(135deg, #1d4ed8, #2563eb);
+      color: white;
+      padding: 70px 20px 50px;
+      text-align: center;
     }
-    .box {
-      max-width: 900px;
-      margin: auto;
-      background: white;
-      padding: 24px;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.08);
+
+    .hero h1 {
+      margin: 0;
+      font-size: 2.3rem;
+    }
+
+    .hero p {
+      max-width: 850px;
+      margin: 18px auto 0;
+      font-size: 1.08rem;
+      opacity: 0.95;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: -25px auto 40px;
+      padding: 0 20px;
+    }
+
+    .section {
+      background: var(--card);
+      border-radius: var(--radius);
+      box-shadow: var(--shadow);
+      padding: 28px;
+      margin-bottom: 24px;
+    }
+
+    .section h2 {
+      margin-top: 0;
+      color: var(--primary-dark);
+    }
+
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 18px;
+      margin-top: 18px;
+    }
+
+    .feature-card {
+      background: #f9fbff;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 18px;
+    }
+
+    .feature-card h3 {
+      margin-top: 0;
+      margin-bottom: 8px;
+      color: var(--primary);
+      font-size: 1.05rem;
+    }
+
+    .feature-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: 0.96rem;
+    }
+
+    .examples {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 12px;
+      margin-top: 14px;
+    }
+
+    .example {
+      background: var(--accent);
+      border-left: 4px solid var(--primary);
+      padding: 12px 14px;
+      border-radius: 10px;
+      font-size: 0.97rem;
+    }
+
+    .note {
+      margin-top: 14px;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.92rem;
+      padding: 10px 20px 40px;
+    }
+
+    @media (max-width: 640px) {
+      .hero h1 {
+        font-size: 1.8rem;
+      }
+      .hero p {
+        font-size: 0.98rem;
+      }
+      .section {
+        padding: 20px;
+      }
     }
   </style>
 </head>
 <body>
-  <div class="box">
-    <h1>Conversational Research Paper Chatbot</h1>
+  <section class="hero">
+    <h1>Conversational Research Paper Recommender</h1>
     <p>
-      This chatbot recommends research papers based on your interests in NLP, machine learning,
-      recommender systems, databases, and related computer science topics.
+      Discover research papers through a chatbot powered by text classification,
+      clustering, and content-based recommendation.
     </p>
-    <p>
-      Try questions like:
-    </p>
-    <ul>
-      <li>Recommend papers on recommender systems</li>
-      <li>Find papers about image segmentation</li>
-      <li>Show me papers on query optimization</li>
-      <li>Tell me more about paper 1</li>
-    </ul>
+  </section>
+
+  <div class="container">
+    <div class="section">
+      <h2>What this chatbot does</h2>
+      <p>
+        This system helps users explore research papers in areas such as natural language
+        processing, machine learning, recommender systems, databases, information retrieval,
+        and computer vision. It predicts the topic of your query, retrieves relevant papers,
+        and explains why the recommendations were selected.
+      </p>
+
+      <div class="features">
+        <div class="feature-card">
+          <h3>Topic Prediction</h3>
+          <p>The system classifies your query into a likely research area before retrieving papers.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Paper Recommendation</h3>
+          <p>It finds semantically similar papers and ranks them using a recommendation score.</p>
+        </div>
+        <div class="feature-card">
+          <h3>Explainable Results</h3>
+          <p>You can ask why a paper was recommended, or request more details about a specific result.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="section">
+      <h2>Try questions like these</h2>
+      <div class="examples">
+        <div class="example">Recommend papers on recommender systems</div>
+        <div class="example">Find papers about image segmentation and object detection</div>
+        <div class="example">Show me papers on query optimization</div>
+        <div class="example">Recommend papers on NLP translation models</div>
+        <div class="example">Tell me more about paper 1</div>
+        <div class="example">Why did you recommend paper 2?</div>
+      </div>
+
+      <p class="note">
+        Tip: more specific queries usually produce better recommendations than broad queries like “AI”.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>Project Context</h2>
+      <p>
+        This chatbot was developed as a final project in Data Science Applications.
+        It combines text preprocessing, TF-IDF feature engineering, classification,
+        clustering, recommendation, and conversational interaction in a single system.
+      </p>
+    </div>
+  </div>
+
+  <div class="footer">
+    Built for academic paper discovery and conversational recommendation.
   </div>
 
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
@@ -48,7 +207,7 @@
     chat-title="ResearchPaperChatbot"
     agent-id="2612fca8-8448-4db0-8715-aa8c19439b92"
     language-code="en"
-    expand="true"
+    expand="false"
   ></df-messenger>
 </body>
 </html>
