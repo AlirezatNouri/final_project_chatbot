@@ -123,13 +123,31 @@
       padding: 10px 20px 40px;
     }
 
+    .badge-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .badge {
+      background: #eef2ff;
+      color: #1e3a8a;
+      padding: 8px 12px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      border: 1px solid #c7d2fe;
+    }
+
     @media (max-width: 640px) {
       .hero h1 {
         font-size: 1.8rem;
       }
+
       .hero p {
         font-size: 0.98rem;
       }
+
       .section {
         padding: 20px;
       }
@@ -140,33 +158,52 @@
   <section class="hero">
     <h1>Conversational Research Paper Recommender</h1>
     <p>
-      Discover research papers through a chatbot powered by text classification,
-      clustering, and content-based recommendation.
+      A chatbot for academic paper discovery powered by TF-IDF, topic classification,
+      semantic similarity, and conversational follow-up support.
     </p>
   </section>
 
   <div class="container">
     <div class="section">
-      <h2>What this chatbot does</h2>
+      <h2>What this chatbot can do</h2>
       <p>
         This system helps users explore research papers in areas such as natural language
         processing, machine learning, recommender systems, databases, information retrieval,
         and computer vision. It predicts the topic of your query, retrieves relevant papers,
-        and explains why the recommendations were selected.
+        and lets you ask follow-up questions about the recommendations.
       </p>
+
+      <div class="badge-row">
+        <div class="badge">TF-IDF + n-grams</div>
+        <div class="badge">Naive Bayes classification</div>
+        <div class="badge">Cosine similarity ranking</div>
+        <div class="badge">Dialogflow memory contexts</div>
+        <div class="badge">FastAPI + Render deployment</div>
+      </div>
 
       <div class="features">
         <div class="feature-card">
           <h3>Topic Prediction</h3>
-          <p>The system classifies your query into a likely research area before retrieving papers.</p>
+          <p>
+            The chatbot predicts the most likely research topic from your query and uses that
+            as part of the recommendation process.
+          </p>
         </div>
+
         <div class="feature-card">
           <h3>Paper Recommendation</h3>
-          <p>It finds semantically similar papers and ranks them using a recommendation score.</p>
+          <p>
+            It ranks papers using semantic similarity plus a topic-based score boost to return
+            relevant recommendations.
+          </p>
         </div>
+
         <div class="feature-card">
-          <h3>Explainable Results</h3>
-          <p>You can ask why a paper was recommended, or request more details about a specific result.</p>
+          <h3>Conversational Follow-up</h3>
+          <p>
+            After recommending papers, the chatbot can answer follow-up questions such as
+            “show me more” or “tell me more about paper 1”.
+          </p>
         </div>
       </div>
     </div>
@@ -178,27 +215,41 @@
         <div class="example">Find papers about image segmentation and object detection</div>
         <div class="example">Show me papers on query optimization</div>
         <div class="example">Recommend papers on NLP translation models</div>
+        <div class="example">Show me more</div>
         <div class="example">Tell me more about paper 1</div>
-        <div class="example">Why did you recommend paper 2?</div>
+        <div class="example">Summarize paper 2</div>
+        <div class="example">Show me the abstract of paper 3</div>
       </div>
 
       <p class="note">
-        Tip: more specific queries usually produce better recommendations than broad queries like “AI”.
+        Tip: specific queries usually produce better recommendations than very broad queries like
+        “AI” or “machine learning”.
+      </p>
+    </div>
+
+    <div class="section">
+      <h2>How it works</h2>
+      <p>
+        The backend is deployed with FastAPI and connected to Dialogflow through webhook fulfillment.
+        When a user sends a query, the system cleans the text, predicts a topic label using
+        Multinomial Naive Bayes, computes semantic similarity with candidate papers, and returns
+        the top recommendations. The chatbot also stores the last recommended papers in memory,
+        so users can ask for more details in follow-up turns.
       </p>
     </div>
 
     <div class="section">
       <h2>Project Context</h2>
       <p>
-        This chatbot was developed as a final project in Data Science Applications.
-        It combines text preprocessing, TF-IDF feature engineering, classification,
-        clustering, recommendation, and conversational interaction in a single system.
+        This chatbot was developed as a final project in Data Science Applications. It combines
+        data preparation, text feature engineering, classification, clustering, recommendation,
+        deployment, and conversational interaction in one integrated system.
       </p>
     </div>
   </div>
 
   <div class="footer">
-    Built for academic paper discovery and conversational recommendation.
+    Built for research paper discovery, explainable recommendation, and conversational follow-up.
   </div>
 
   <script src="https://www.gstatic.com/dialogflow-console/fast/messenger/bootstrap.js?v=1"></script>
